@@ -8,7 +8,7 @@ An End-To-End Data Engineering Pipeline
 2.  **docker-compose -f docker-compose.yaml build**
 3.  Find the **POSTGRES-CONTAINER ID** of postgres respective image by running **docker ps -aqf "name=postgres"**
 4.  Extract the postgress IP Adress by running **docker inspect POSTGRES-CONTAINER ID | grep IPAddress**
-5.  Fullfill the corresponding VM host IP Adress in line 209 along with the ssh credentials (password : line 211 and username : line 212) and the postgress IP Adress ,retrieved from the step 4, in 213 line of test.py source code file. Such that the ssh connection to the DB is established
+5.  Fullfill the corresponding VM host IP Adress in line 209 along with the ssh credentials (password : line 211 and username : line 212) and the postgress IP Adress ,retrieved from the step 4, in 213 line of test.py source code file. Such that the ssh connection to the Postgres DB is established
 6.  Execute the pipeline by running **docker run -ti --rm --name python-script -v "$PWD":/code python_app_stack python test.py**
 
 
