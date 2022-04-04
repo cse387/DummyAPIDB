@@ -1,6 +1,6 @@
 # DummyAPIDB
-An End-To-End Data Engeeniring Pipeline
+An End-To-End Data Engineering Pipeline
 
-# A Dockerized python application, ingergrating postgres client and pgadmin managment studio
+### A Dockerized python application, integrating postgres client and pgadmin managment studio
 
-# run 
+* run 
