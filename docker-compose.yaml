@@ -23,7 +23,7 @@ services:
   postgres_db:
     image: postgres:11.1
     environment:   # Set up postgres database name and password
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: postgress
       POSTGRES_DB: dummyapidb
       POSTGRES_USER: postgres
       DBT_SCHEMA: dbt
