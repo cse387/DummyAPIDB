@@ -1,0 +1,64 @@
+version: '3'
+
+
+services:
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: unless-stopped
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "5050:80"
+      # - "80:80"
+    networks:
+      - app-tier
+    volumes:
+      - ./pgadmin:/var/lib/pg_admin/data
+    depends_on:
+      - postgres_db
+
+
+  postgres_db:
+    image: postgres:11.1
+    environment:   # Set up postgres database name and password
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: dummyapidb
+      POSTGRES_USER: postgres
+      DBT_SCHEMA: dbt
+      DBT_RAW_DATA_SCHEMA: dbt_raw_data
+    ports:    # Set up ports exposed for other containers to connect to
+      - 5433:5432
+    networks:
+      - app-tier
+    volumes:
+      - ./postgres:/docker-entrypoint-initdb.d
+
+  python_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: python_app_stack
+    depends_on:
+      - postgres_db
+
+    ports: 
+      - 8001:8001
+    
+    # volumes:
+    #   - ./code
+    #   - ./.dbt/profiles.yml:/root/.dbt/profiles.yml
+    #   - ./.dbt/dbt_project.yml:/root/.dbt/dbt_project.yml
+      
+    links: 
+      - "postgres_db:database"
+
+    networks:
+      - app-tier
+    command:
+      tail -f /dev/null
+
+networks:
+  app-tier:
+    driver: bridge
