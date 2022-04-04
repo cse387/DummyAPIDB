@@ -19,7 +19,6 @@ services:
     depends_on:
       - postgres_db
 
-
   postgres_db:
     image: postgres:11.1
     environment:   # Set up postgres database name and password
