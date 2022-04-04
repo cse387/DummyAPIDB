@@ -209,7 +209,7 @@ ssh_tunnel= SSHTunnelForwarder(
         #  ('localhost', 22),
          ssh_password="SET-PASSWORD",
          ssh_username="SET-USERNAME",
-         remote_bind_address=('172.20.0.2', 5432))
+         remote_bind_address=('SET-POSTGRES-IP-ADDRESS', 5432))
 
 ssh_tunnel.start()
 
