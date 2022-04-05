@@ -14,7 +14,7 @@ An End-To-End Data Engineering Pipeline
 
 * The whole pipeline is demostrated within the **test.ipynd**
 
-* In case you want to perform queries on the pgamdin managment studio visit this portal "IP-Adress::5050" and fullfil the credentials exist in line 19,18 of **docker-compose.yaml** file
+* In case you want to perform queries on the pgamdin managment studio visit this portal "IP-Adress:5050" and fullfil the credentials exist in line 19,18 of **docker-compose.yaml** file
 
 * Connect to the database namely **dummyapidb** using the credentials demostrated in lines 47, 49 of **docker-compose.yaml** file
 
