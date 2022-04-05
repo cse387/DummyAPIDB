@@ -18,5 +18,5 @@ An End-To-End Data Engineering Pipeline
 
 * Connect to the database namely **dummyapidb** using the credentials demostrated in lines 47, 49 of **docker-compose.yaml** file
 
-**The underlying ER Schema
+**The underlying ER Schema**
 <img src="DummyAPIDBSchema.png" width=1000 height=800 />
