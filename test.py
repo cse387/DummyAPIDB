@@ -184,9 +184,9 @@ _**In case you want the fetching to finish earlier reduce the page upper limit -
     """
 
 print("Fetching Data....")
-user, locations = retreive_full_records(object_ = "user", api_preffix = api_preffix, api_id = api_id, page_upper_limit = 999)
-posts, pages = retreive_full_records(object_ = "post", api_preffix = api_preffix, api_id = api_id, page_upper_limit = 999)
-comments = retreive_full_records(object_ = "comment", api_preffix = api_preffix, api_id = api_id, page_upper_limit = 999)
+user, locations = retreive_full_records(object_ = "user", api_preffix = api_preffix, api_id = api_id, page_upper_limit = 20)
+posts, pages = retreive_full_records(object_ = "post", api_preffix = api_preffix, api_id = api_id, page_upper_limit = 20)
+comments = retreive_full_records(object_ = "comment", api_preffix = api_preffix, api_id = api_id, page_upper_limit = 20)
 
 print("Data Review ....")
 print(user)
