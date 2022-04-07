@@ -687,7 +687,10 @@ select id, count(distinct(comments_id))/count(distinct(posts_id)) as comment_pos
 group by id
 order by count(posts_id) desc limit 10) as comment_post_ratio_;""")
 print("What is the median comment/post ratio amongst the users with the most posts?")
-print(cursor.fetchall())
+try :
+    print(cursor.fetchall())
+except:
+    print("Numerical Error")
 # -- What is the average time between registration and first comment?
 
 cursor.execute("""with user_comments as (
