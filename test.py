@@ -205,29 +205,29 @@ print(comments)
 print("DataBase (Postgres) Connection ....")
 
 
-ssh_tunnel= SSHTunnelForwarder(
-         ('SET-HOST-IP-ADDRESS', 22),
-        #  ('localhost', 22),
-         ssh_password="SET-PASSWORD",
-         ssh_username="SET-USERNAME",
-         remote_bind_address=('SET-POSTGRES-IP-ADDRESS', 5432))
+# ssh_tunnel= SSHTunnelForwarder(
+#          ('SET-HOST-IP-ADDRESS', 22),
+#         #  ('localhost', 22),
+#          ssh_password="SET-PASSWORD",
+#          ssh_username="SET-USERNAME",
+#          remote_bind_address=('SET-POSTGRES-IP-ADDRESS', 5432))
 
-ssh_tunnel.start()
+# ssh_tunnel.start()
 
-ssh_tunnel.local_bind_port
+# ssh_tunnel.local_bind_port
 
-connection = psycopg2.connect(  dbname='dummyapidb'
-                              , user="postgres"
-                              , password="postgres"
-                              , host='127.0.0.1'
-                              , port=ssh_tunnel.local_bind_port)#127.0.0.1
+# connection = psycopg2.connect(  dbname='dummyapidb'
+#                               , user="postgres"
+#                               , password="postgres"
+#                               , host='127.0.0.1'
+#                               , port=ssh_tunnel.local_bind_port)#127.0.0.1
 
-# connection = psycopg2.connect(dbname='dummyapidb',
-#                              user = "postgres",
-#                              password = "postgres",
-#                             #  host = "localhost",
-#                              host = "127.0.0.1",
-#                              port = "5432")
+connection = psycopg2.connect(dbname='dummyapidb',
+                             user = "postgres",
+                             password = "postgres",
+                            #  host = "localhost",
+                             host = "SET-POSTGRES-IP-ADDRESS",
+                             port = "5432")
 
 cursor = connection.cursor()
 
